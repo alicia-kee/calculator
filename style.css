@@ -1,0 +1,77 @@
+html, body{ /* Ensure body and html take up the full viewport height, or else can't center */
+    margin: 0;
+    height: 100%;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #F5F3F2;
+}
+
+.calculator-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #BAC7DD;
+    height: 600px;
+    width: 450px;
+    border-radius: 30px;
+    box-shadow: 12px 12px #BDE7EE;
+}
+
+.display{
+    background-color: #F5F3F2;
+    margin: 10px;
+    width: 400px;
+    height: 110px;
+    border-radius: 30px;
+    box-shadow: 10px 10px 5px #BDE7EE inset;
+    font-size: 50px;
+    font-family: "Space Mono", sans-serif;
+    
+    /*align text in display*/
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 2px 15px;
+}
+
+.top-row{
+    display: flex;
+    gap: 15px;
+    margin:8px;
+}
+
+.calculator-body{ /*everything below top row*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 370px;
+    height: 350px;
+}
+.clearBtn, .deleteBtn{
+    width: 170px;
+    height: 60px;
+    border-radius: 15px;
+    background-color: #EED5EE;
+}
+
+.addBtn, .subtractBtn, .multiplyBtn, .divideBtn, .decimalBtn, .equalBtn{
+    background-color: #EED5EE;
+}
+
+button{
+    font-size: 24px;
+    font-family: "Space Mono", sans-serif;
+    background-color: #BABABC;
+    box-shadow: 3px 3px 2px #BDE7EE;
+    border-radius: 5px;
+    margin: 5px;
+    width: 80px;
+    height: 70px;
+}
