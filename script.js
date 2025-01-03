@@ -81,7 +81,12 @@ function deleteLastDigit(){
 
 function addDecimal(){
     if(currString.length < 12 && !currString.includes(".")){ 
-        currString = currString + ".";
+        if(currString === ""){
+            currString = "0.";
+
+        }else{
+            currString = currString + ".";
+        }
         display.textContent = currString;
     }
 }
