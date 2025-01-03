@@ -35,7 +35,7 @@ function operate(){
         
         currString = "" + result;
         if(currString.length>12){
-            result = result.toPrecision(11);
+            result = result.toPrecision(10);
             currString = "" + result;
         }
         display.textContent = currString;
@@ -54,7 +54,12 @@ function operate(){
 
 function addToString(newNum){
     if(currString.length < 12){ 
-        currString = currString + newNum;
+        if(currString === "0"){ //just zero
+            currString = newNum;
+
+        }else{
+            currString = currString + newNum;
+        }
         display.textContent = currString;
     }
 }
@@ -82,7 +87,7 @@ function addDecimal(){
 }
 
 function addZero(){
-    if(currString.includes(".") || currString===""){ //can't enter more zeroes if just have 0 in display
+    if(currString !== "0"){ //can't enter more zeroes if just have 0 in display
         addToString("0");
     }
 }
