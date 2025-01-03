@@ -34,7 +34,12 @@ function operate(){
         }
         
         currString = "" + result;
+        if(currString.length>12){
+            result = result.toPrecision(11);
+            currString = "" + result;
+        }
         display.textContent = currString;
+
         //reset:
         if(result!=="ERROR"){
             num1 = result;
@@ -48,7 +53,7 @@ function operate(){
 }
 
 function addToString(newNum){
-    if(currString.length < 12){ //normal case
+    if(currString.length < 12){ 
         currString = currString + newNum;
         display.textContent = currString;
     }
@@ -67,6 +72,19 @@ function deleteLastDigit(){
         currString = currString.slice(0, currString.length-1);
     }
     display.textContent = currString;
+}
+
+function addDecimal(){
+    if(currString.length < 12 && !currString.includes(".")){ 
+        currString = currString + ".";
+        display.textContent = currString;
+    }
+}
+
+function addZero(){
+    if(currString.includes(".") || currString===""){ //can't enter more zeroes if just have 0 in display
+        addToString("0");
+    }
 }
 
 let num1 = null;
@@ -126,3 +144,9 @@ divideBtn.addEventListener("click", () => {
 
 const equalBtn = document.querySelector(".equalBtn");
 equalBtn.addEventListener("click", operate);
+
+const decimalBtn = document.querySelector(".decimalBtn");
+decimalBtn.addEventListener("click", addDecimal);
+
+const zeroBtn = document.querySelector(".number0");
+zeroBtn.addEventListener("click", addZero)
