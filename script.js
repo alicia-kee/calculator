@@ -28,3 +28,41 @@ function operate(num1, num2, operation){
 
     return result;
 }
+
+function addToString(newNum){
+    if(currString.length < 12){
+        currString = currString + newNum;
+        display.textContent = currString;
+    }
+}
+
+function clearData(){
+    num1 = null;
+    num2 = null;
+    currString = "";
+    display.textContent = currString;
+}
+
+function deleteLastDigit(){
+    if(currString.length > 0){
+        currString = currString.slice(0, currString.length-1);
+    }
+    display.textContent = currString;
+}
+
+let num1;
+let num2;
+let currString = "";
+
+const display = document.querySelector(".display");
+
+const numbers = document.querySelectorAll(".number");
+numbers.forEach((number) => {
+    number.addEventListener("click", () => addToString(number.textContent));
+});
+
+const clear = document.querySelector(".clearBtn");
+clear.addEventListener("click", clearData);
+
+const deleteDigit = document.querySelector(".deleteBtn");
+deleteDigit.addEventListener("click", deleteLastDigit);
